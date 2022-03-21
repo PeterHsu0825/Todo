@@ -1,4 +1,10 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Todo.Data;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<TodoContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TodoContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
