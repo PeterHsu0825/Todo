@@ -16,3 +16,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+tbody tr:hover{
+    background-color: #64a5a1;
+}
+
+tbody tr:hover td:first-child {
+    font-size: 1.8rem;
+    font-weight: bold;
+}

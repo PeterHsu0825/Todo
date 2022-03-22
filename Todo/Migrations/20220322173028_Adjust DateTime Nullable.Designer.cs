@@ -12,8 +12,8 @@ using Todo.Data;
 namespace Todo.Migrations
 {
     [DbContext(typeof(TodoContext))]
-    [Migration("20220321174014_initial")]
-    partial class initial
+    [Migration("20220322173028_Adjust DateTime Nullable")]
+    partial class AdjustDateTimeNullable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,8 +32,11 @@ namespace Todo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime?>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Detail")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
